@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'features/splash_screen/splash_view.dart';
+
 void main() {
   runApp(const BooklyApp());
 }
