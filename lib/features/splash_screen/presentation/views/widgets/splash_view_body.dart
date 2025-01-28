@@ -2,7 +2,6 @@ import 'package:bookly/core/utls/assets.dart';
 import 'package:bookly/features/splash_screen/presentation/views/widgets/sliding_animation.dart';
 import 'package:flutter/material.dart';
 
-
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
 
@@ -10,32 +9,30 @@ class SplashViewBody extends StatefulWidget {
   State<SplashViewBody> createState() => _SplashViewBodyState();
 }
 
-class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProviderStateMixin{
+class _SplashViewBodyState extends State<SplashViewBody>
+    with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<Offset> slidingAnimation;
 
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    animationController = AnimationController(vsync: this, duration: const Duration(minutes: 1));
+    animationController =
+        AnimationController(vsync: this, duration: const Duration(seconds: 3));
     slidingAnimation =
-        Tween<Offset>(
-            begin: const Offset(0,2),
-            end: Offset.zero).animate(animationController
-        );
-        slidingAnimation.addListener(() {
-          setState(() {
+        Tween<Offset>(begin: const Offset(0, 2), end: Offset.zero)
+            .animate(animationController);
 
-          });
-        });
+    // Start the animation
+    animationController.forward();
   }
+
   @override
-  void dispose(){
+  void dispose() {
+    animationController.dispose(); // Dispose the animation controller to prevent memory leaks
     super.dispose();
-    animationController.dispose();
-    // useful in memory leak
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,7 +41,7 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Image.asset(AssetsData.logo),
-          SlidingAnimation(slidingAnimation: slidingAnimation)
+          SlidingAnimation(slidingAnimation: slidingAnimation),
         ],
       ),
     );
