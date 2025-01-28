@@ -3,8 +3,6 @@ import 'package:bookly/core/utls/assets.dart';
 import 'package:bookly/features/splash_screen/presentation/views/widgets/sliding_animation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import '../../../../home/presentation/views/home_view.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -23,11 +21,7 @@ class _SplashViewBodyState extends State<SplashViewBody>
   void initState() {
     super.initState();
     initSlidingAnimation();
-    navigateToHome();
-  }
-
-  void navigateToHome() { //single responsibility principle !
-      Future.delayed(const Duration(seconds: 2),(){
+    Future.delayed(const Duration(seconds: 2),(){
       Get.to(()=> const HomeView() , transition : Transition.fade,duration:kTransitionDuration);
     });
   }

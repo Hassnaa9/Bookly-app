@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'custom_appBar.dart';
+import 'custom_list_view_item.dart';
 
 class ViewBody extends StatelessWidget {
   const ViewBody({super.key});
@@ -10,6 +10,7 @@ class ViewBody extends StatelessWidget {
     return const Column(
       children: [
         CustomAppBar(),
+        CustomListViewItem()
       ],
     );
   }
