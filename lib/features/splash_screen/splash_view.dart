@@ -12,7 +12,7 @@ class SplashView extends StatelessWidget {
     return  MaterialApp(
       debugShowCheckedModeBanner: false,
       home: const SplashViewBody(),
-     theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPrimaryColor),
+      theme: ThemeData.dark().copyWith(scaffoldBackgroundColor: kPrimaryColor),
     );
   }
 }
