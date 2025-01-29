@@ -1,34 +1,22 @@
+import 'package:bookly/core/utls/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'custom_appBar.dart';
-import 'custom_list_view_item.dart';
+import 'custom_list_view.dart';
 
 class ViewBody extends StatelessWidget {
   const ViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return  Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomAppBar(),
-        CustomBooksListView()
+        const CustomAppBar(),
+        const CustomBooksListView(),
+        SizedBox(height: MediaQuery.of(context).size.height*.049,),
+        const Text('Best Seller' , style: MyStyles.titleMedium,)
       ],
-    );
-  }
-}
-class CustomBooksListView extends StatelessWidget {
-  const CustomBooksListView({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height*.3,
-      child: ListView.builder(
-        scrollDirection: Axis.horizontal,
-          itemBuilder: (context,index){
-          return const Padding(
-            padding:  EdgeInsets.symmetric(horizontal: 8),
-              child:  CustomListViewItem());
-          }),
     );
   }
 }
